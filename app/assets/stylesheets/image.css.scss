@@ -1,0 +1,60 @@
+body {
+  padding-top: 70px;
+  position: relative;
+}
+
+.wrap {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.row {
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.small-caption {
+  font-size: 0.8em;
+}
+
+.search-form {
+  position: relative;
+
+  input {
+    padding-left: 30px;
+  }
+
+  i {
+    position: absolute;
+    padding: 9px 10px;
+
+    @media (max-width: 768px) {
+      padding: 19px 10px;
+    }
+  }
+}
+
+#actions {
+  .btn.start {
+    @media (max-width: 360px) {
+      margin-top: 5px;
+    }
+  }
+}
+
+.navbar-bottom {
+  margin-bottom: 0px;
+  border-radius: 0;
+  color: #f9f9f9;
+  padding-top: 1em;
+
+  span, a {
+    position: relative;
+    vertical-align: middle;
+  }
+
+  .fa {
+    font-size: 2em;
+    color: #f9f9f9;
+  }
+}

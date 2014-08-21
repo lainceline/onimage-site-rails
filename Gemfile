@@ -4,7 +4,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.5'
 
 # Use mysql as the database for Active Record
-gem 'mysql2'
+#gem 'mysql2'
+
+gem 'sqlite3'
 
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -18,10 +20,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'bootstrap-sass', '~> 3.2.0'
+gem 'font-awesome-rails'
 
 gem 'spring',        group: :development
 
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'doorkeeper'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'

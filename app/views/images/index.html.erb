@@ -1,0 +1,9 @@
+<div class="wrap" ng-controller="ImageController as imageCtrl">
+
+    <div id="img-container" class="img-container">
+      <div class="row">
+        <images ng-repeat="image in images | filter:search"></images>
+      </div>
+    </div>
+
+</div>

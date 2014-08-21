@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>OnimageRails</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <title>Onimage - Rails Version</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+
+<body id="top" ng-app="imageApp" data-spy="scroll" data-target=".navbar-collapse">
+
+<%= render "partials/navigation" %>
 
 <%= yield %>
 
 <%= jquery_include_tag :google %>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+<%= render "partials/footer" %>
 
 </body>
 </html>
