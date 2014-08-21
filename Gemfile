@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'jquery-rails'
 gem 'jquery-rails-cdn'
+gem 'sprockets'
 
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
@@ -32,6 +33,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'selenium-webdriver'
 end
 
 # Use unicorn as the app server
