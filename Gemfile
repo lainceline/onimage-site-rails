@@ -36,16 +36,10 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'capybara'
-  gem 'selenium-webdriver'
 end
 
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'faker'
+end
