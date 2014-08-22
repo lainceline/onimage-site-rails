@@ -6,5 +6,12 @@ FactoryGirl.define do
     title { Faker::Hacker.noun + ' ' + Faker::Hacker.ingverb }
     original_filename { Faker::Company.logo }
     uploaded_filename { Faker::ean + ".jpg" }
+
+    factory :image_with_tag do
+      after_create do |image|
+        create(:tag, image: image)
+      end
+    end
+
   end
 end
