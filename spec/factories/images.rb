@@ -1,9 +1,10 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
+require 'faker'
 
 FactoryGirl.define do
   factory :images do
-    title "MyString"
-    original_filename "MyString"
-    uploaded_filename "MyString"
+    title { Faker::Hacker.noun + ' ' + Faker::Hacker.ingverb }
+    original_filename { Faker::Company.logo }
+    uploaded_filename { Faker::ean + ".jpg" }
   end
 end
