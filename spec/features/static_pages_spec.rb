@@ -10,7 +10,7 @@ RSpec.describe OnimageRails do
       visit root_path
       expect(page).to have_title(site_title)
     end
-    
+
   end
 
 end
