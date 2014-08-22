@@ -46,5 +46,4 @@ RSpec.configure do |config|
   #config.render_views
 
   config.include Capybara::DSL
-  Capybara.default_driver = :selenium
 end
