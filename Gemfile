@@ -27,10 +27,12 @@ gem 'spring',        group: :development
 
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'doorkeeper'
+group :development do
+  gem 'doorkeeper'
+end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'selenium-webdriver'
