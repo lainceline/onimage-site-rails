@@ -1,2 +1,10 @@
-    <h1>StaticPage#index</h1>
-    <p>Find me in app/views/static_page/index.html.erb</p>
+<images-navbar></images-navbar>
+<div  class="wrap">
+  <uploader></uploader>
+  <div id="img-container" class="img-container">
+    <div class="row">
+      <images ng-repeat="image in images | filter:search"></images>
+    </div>
+  </div>
+</div>
+<images-footer></images-footer>

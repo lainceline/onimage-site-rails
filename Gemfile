@@ -27,6 +27,8 @@ gem 'spring',        group: :development
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'dropzonejs-rails'
+
 group :development do
   gem 'doorkeeper'
 end

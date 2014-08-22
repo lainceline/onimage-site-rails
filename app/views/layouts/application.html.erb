@@ -12,8 +12,12 @@
 
 <body id="top" ng-app="imageApp" data-spy="scroll" data-target=".navbar-collapse">
 
+<%= yield %>
+
 <%= jquery_include_tag :google %>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 
 </body>
 </html>
