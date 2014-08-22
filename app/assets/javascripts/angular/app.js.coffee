@@ -1,1 +1,1 @@
-imageApp = angular.module 'imageApp', ['imageDirectives']
+imageApp = angular.module 'imageApp', ['imageControllers', 'imageDirectives']
