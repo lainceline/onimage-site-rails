@@ -1,19 +1,26 @@
 require 'rails_helper'
 
 describe Image do
-  it "should be invalid without any of its properties" do
-    image = Image.new
 
-    expect(image).not_to be_valid
+  before(:each) do
+    @image = create(:image)
   end
 
-  it "should be valid when it has all its properties" do
-    image = Image.new
+  it "should be invalid without a title" do
+    @image.title = nil
 
-    image.uploaded_filename = '324234.jpg'
-    image.original_filename = 'foo.jpg'
-    image.title = 'foo'
+    expect(@image).not_to be_valid
+  end
 
-    expect(image).to be_valid
+  it "should be invalid without an uploaded filename" do
+    @image.uploaded_filename = nil
+
+    expect(@image).not_to be_valid
+  end
+
+  it "should be invalid without an original filename" do
+    @image.original_filename = nil
+
+    expect(@image).not_to be_valid
   end
 end
