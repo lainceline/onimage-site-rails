@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821185416) do
+ActiveRecord::Schema.define(version: 20140822205812) do
+
+  create_table "comments", force: true do |t|
+    t.string   "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "image_id"
+  end
+
+  add_index "comments", ["image_id"], name: "index_comments_on_image_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "images", force: true do |t|
     t.string   "title"
@@ -19,7 +30,10 @@ ActiveRecord::Schema.define(version: 20140821185416) do
     t.string   "uploaded_filename"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
+
+  add_index "images", ["user_id"], name: "index_images_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
