@@ -2,10 +2,10 @@
 require 'faker'
 
 FactoryGirl.define do
-  factory :images do
+  factory :image do
     title { Faker::Hacker.noun + ' ' + Faker::Hacker.ingverb }
     original_filename { Faker::Company.logo }
-    uploaded_filename { Faker::ean + ".jpg" }
+    uploaded_filename { Faker::Code.ean + ".jpg" }
 
     factory :image_with_tag do
       after_create do |image|
