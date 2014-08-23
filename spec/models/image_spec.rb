@@ -3,8 +3,7 @@ require 'rails_helper'
 describe Image do
 
   before { @image = create(:image) }
-  let(:image) { @image }
-  subject { image }
+  subject(:image) { @image }
 
   it "should have a valid factory" do
     expect(FactoryGirl.create(:image)).to be_valid

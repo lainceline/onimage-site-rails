@@ -7,10 +7,8 @@ RSpec.describe Tag, :type => :model do
   end
 
   it "should know how many images it has" do
-
     tag = create(:tag_with_images)
     expect(tag.images.count).to eq tag.num_images
-
   end
 
 end
