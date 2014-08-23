@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Tag, :type => :model do
 
-  it "should be able to list its images" do
+  it "should know how many tags it has" do
 
-    tag = create(:tag_with_image)
+    tag = create(:tag_with_images)
     expect(tag.images.count).to eq tag.num_images
 
   end

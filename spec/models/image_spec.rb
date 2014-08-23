@@ -23,4 +23,9 @@ describe Image do
 
     expect(@image).not_to be_valid
   end
+
+  it "should know how many tags it has" do
+    image = create(:image_with_tags)
+    expect(image.tags.count).to eq image.num_tags
+  end
 end

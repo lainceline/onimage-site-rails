@@ -7,9 +7,13 @@ FactoryGirl.define do
     original_filename { Faker::Company.logo }
     uploaded_filename { Faker::Code.ean + ".jpg" }
 
-    factory :image_with_tag do
-      after_create do |image|
-        create(:tag, image: image)
+    factory :image_with_tags do
+      after(:create) do |image|
+        total_tags = rand(20)
+        begin
+          image.tags << FactoryGirl.create(:tag)
+          image.num_tags += 1
+          end until image.num_tags == total_tags
       end
     end
 
