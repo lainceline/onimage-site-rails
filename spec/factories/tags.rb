@@ -5,8 +5,12 @@ FactoryGirl.define do
     name { Faker::Hacker.noun }
 
     factory :tag_with_image do
-      after_create do |tag|
-        create(:image, tag: tag)
+      after(:create) do |tag|
+        total_images = rand(10)
+        begin
+            tag.images << FactoryGirl.create(:image)
+            tag.num_images = 1 + tag.num_images
+        end until tag.num_images == total_images
       end
     end
 

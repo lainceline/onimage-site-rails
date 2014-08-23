@@ -1,3 +1,11 @@
 class Tag < ActiveRecord::Base
-  has_many :images, through: :imagestags
+
+  after_initialize :defaults
+
+  has_and_belongs_to_many :images
+
+  def defaults
+    self.num_images ||= 0
+  end
+
 end
