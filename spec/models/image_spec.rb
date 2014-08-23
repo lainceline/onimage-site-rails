@@ -29,9 +29,18 @@ describe Image do
     end
   end
 
-  it "should know how many tags it has" do
-    image = create(:image_with_tags)
-    expect(image.tags.count).to eq image.num_tags
+  context "should have an association with" do
+    it "its tags" do
+      image = create(:image_with_tags)
+      expect(image.tags).not_to be_nil
+      expect(image.tags[0]).to be_a(Tag)
+    end
+
+    it "its comments" do
+      image = create(:image_with_comments)
+      expect(image.comments).not_to be_nil
+      expect(image.comments[0]).to be_a(Comment)
+    end
   end
 
   it "should be able to generate a random filename for itself" do

@@ -17,5 +17,15 @@ FactoryGirl.define do
       end
     end
 
+    factory :image_with_comments do
+      after(:create) do |image|
+        total_comments = rand(20)
+        begin
+          image.comments << FactoryGirl.build(:comment)
+          total_comments = total_comments - 1
+        end until total_comments == 0
+      end
+    end
+
   end
 end
