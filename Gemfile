@@ -31,6 +31,8 @@ gem 'dropzonejs-rails'
 
 group :development do
   gem 'doorkeeper'
+  gem 'guard'
+  gem 'guard-rspec'
 end
 
 group :development, :test do
