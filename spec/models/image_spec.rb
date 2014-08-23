@@ -34,4 +34,8 @@ describe Image do
     expect(image.tags.count).to eq image.num_tags
   end
 
+  it "should be able to generate a random filename for itself" do
+    expect(image.randomize_filename).not_to eq image.original_filename
+  end
+
 end

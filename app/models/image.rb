@@ -1,3 +1,5 @@
+require 'securerandom'
+
 class Image < ActiveRecord::Base
 
   after_initialize :defaults
@@ -14,4 +16,10 @@ class Image < ActiveRecord::Base
     self.num_tags ||= 0
   end
 
+  def randomize_filename
+    self.uploaded_filename = [SecureRandom.hex, self.original_filename.extension].join
+  end
+
 end
+
+
