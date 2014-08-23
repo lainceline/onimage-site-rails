@@ -3,4 +3,5 @@ rvm:
 - 2.1.1
 env:
   global:
-    secure: aj/9JMtApMJm1UEt0sqe/Nx5CurC868LxtKZkK0/huEO877tvC3bduxHpcEjLK1Oa46cdcGGq3ZGFwk3Y/Sbl0tRWfr8VNMZsBNDX+cWFB6Wm3XkQAiWfyA/PHpSt+7zhBi2leP7IjY0Hz/W1RsbYQiqqyzitDHZk3cupND6/XY=
+  - secure: aj/9JMtApMJm1UEt0sqe/Nx5CurC868LxtKZkK0/huEO877tvC3bduxHpcEjLK1Oa46cdcGGq3ZGFwk3Y/Sbl0tRWfr8VNMZsBNDX+cWFB6Wm3XkQAiWfyA/PHpSt+7zhBi2leP7IjY0Hz/W1RsbYQiqqyzitDHZk3cupND6/XY=
+  - secure: T3BW2KD7CZ6VzFJBbMvn6S3sut1xVdTmCYrjvRV8Tu/R9Quzau7J0tAHTgzyKQA0pN+a+gZAbmEqGS7fHsudVOD47LvksaZTqlmXkEeJ4+x+dblcpSlCzW/cQUzr+RJTpZ/cAGWO7x7i8ssW6YJ7LBAwFFNXiryktp+HqHfW39M=

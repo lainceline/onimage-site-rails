@@ -48,4 +48,5 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'faker'
+  gem 'codeclimate-test-reporter'
 end
