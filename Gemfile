@@ -29,6 +29,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'dropzonejs-rails'
 
+gem 'zip'
+
 group :development do
   gem 'doorkeeper'
   gem 'guard'
