@@ -9,8 +9,8 @@ FactoryGirl.define do
         total_images = rand(10)
         begin
             tag.images << FactoryGirl.build(:image)
-            tag.num_images += 1
-        end until tag.num_images == total_images
+            total_images = total_images - 1
+        end until total_images == 0
       end
     end
 

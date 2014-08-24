@@ -12,8 +12,8 @@ FactoryGirl.define do
         total_tags = rand(20)
         begin
           image.tags << FactoryGirl.create(:tag)
-          image.num_tags += 1
-          end until image.num_tags == total_tags
+          total_tags = total_tags - 1
+          end until total_tags == 0
       end
     end
 

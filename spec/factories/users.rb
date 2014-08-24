@@ -9,12 +9,11 @@ FactoryGirl.define do
 
     factory :user_with_images do
       after(:create) do |user|
-
         total_images = rand(20)
         begin
           user.images << FactoryGirl.create(:image)
-          user.num_images += 1
-        end until user.num_images == total_images
+          total_images = total_images - 1
+        end until total_images == 0
       end
 
     end
