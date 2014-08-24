@@ -20,4 +20,13 @@ RSpec.describe UsersController, :type => :controller do
       expect(response).to be_success
     end
   end
+
+  describe '#create' do
+    it 'should create the user from the attributes passed in' do
+      get :create, {:name => 'James', :email => 'foo@bar.com'}
+      expect(response).to be_success
+      user_response = JSON.parse(response.body, symbolize_names: true)
+      expect(user_response[:id]).to_not be_nil
+    end
+  end
 end
