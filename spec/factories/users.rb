@@ -9,11 +9,9 @@ FactoryGirl.define do
 
     factory :user_with_images do
       after(:create) do |user|
-        total_images = rand(20)
-        begin
-          user.images << FactoryGirl.create(:image)
-          total_images = total_images - 1
-        end until total_images == 0
+        for i in 0..rand(20)
+          user.images << FactoryGirl.build(:image)
+        end
       end
 
     end

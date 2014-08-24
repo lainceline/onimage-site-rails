@@ -9,21 +9,17 @@ FactoryGirl.define do
 
     factory :image_with_tags do
       after(:create) do |image|
-        total_tags = rand(20)
-        begin
-          image.tags << FactoryGirl.create(:tag)
-          total_tags = total_tags - 1
-          end until total_tags == 0
+        for i in 0..rand(20)
+          image.tags << FactoryGirl.build(:tag)
+        end
       end
     end
 
     factory :image_with_comments do
       after(:create) do |image|
-        total_comments = rand(20)
-        begin
+        for i in 0..rand(20)
           image.comments << FactoryGirl.build(:comment)
-          total_comments = total_comments - 1
-        end until total_comments == 0
+        end
       end
     end
 
