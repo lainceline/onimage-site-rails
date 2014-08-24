@@ -12,5 +12,12 @@ RSpec.describe UsersController, :type => :controller do
       users = JSON.parse(response.body, symbolize_names: true)
       expect(users.count).to eq 3
     end
+
+    it "for one user" do
+      user = create(:user)
+
+      get :show, {:id => user.id}
+      expect(response).to be_success
+    end
   end
 end
