@@ -12,19 +12,16 @@ describe Image do
   context "should be invalid" do
     it "without a title" do
       image.title = nil
-
       expect(image).not_to be_valid
     end
 
     it "without an uploaded filename" do
       image.uploaded_filename = nil
-
       expect(image).not_to be_valid
     end
 
     it "without an original filename" do
       image.original_filename = nil
-
       expect(image).not_to be_valid
     end
   end
