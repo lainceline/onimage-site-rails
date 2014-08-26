@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140824043608) do
+ActiveRecord::Schema.define(version: 20140826215536) do
 
   create_table "comments", force: true do |t|
     t.string   "text"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140824043608) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "tag_id"
+    t.integer  "num_comments",      default: 0
+    t.integer  "num_tags",          default: 0
   end
 
   add_index "images", ["tag_id"], name: "index_images_on_tag_id"
@@ -53,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140824043608) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "num_images", default: 0
   end
 
 end
