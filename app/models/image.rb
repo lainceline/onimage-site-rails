@@ -4,7 +4,7 @@ class Image < ActiveRecord::Base
 
   belongs_to :user
   has_many :comments
-  has_and_belongs_to_many :tags
+  has_and_belongs_to_many :tags, counter_cache: true
 
   validates :title, presence: true
   validates :original_filename, presence: true
