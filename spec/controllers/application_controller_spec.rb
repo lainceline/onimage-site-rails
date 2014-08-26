@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe StaticPageController do
+describe ApplicationController do
 
   describe "GET index" do
     it "returns http success" do
