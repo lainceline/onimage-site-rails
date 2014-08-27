@@ -5,3 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+20.times do |i|
+  user = FactoryGirl.create(:user)
+  image = FactoryGirl.build(:image)
+  tag = FactoryGirl.build(:tag)
+  comment = FactoryGirl.build(:comment)
+
+  comment.user = user
+  
+  image.tags << tag
+  image.comments << comment
+  user.images << image
+end
