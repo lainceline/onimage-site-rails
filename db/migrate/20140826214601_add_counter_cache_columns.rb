@@ -4,5 +4,6 @@ class AddCounterCacheColumns < ActiveRecord::Migration
     add_column :users, :comments_count, :integer, { default: 0 }
     add_column :images, :comments_count, :integer, { default: 0 }
     add_column :images, :tags_count, :integer, { default: 0 }
+    add_column :tags, :images_count, :integer, { default: 0 }
   end
 end
