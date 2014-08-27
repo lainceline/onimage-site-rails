@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140826215536) do
+ActiveRecord::Schema.define(version: 20140827191627) do
 
   create_table "comments", force: true do |t|
     t.string   "text"
@@ -24,6 +24,13 @@ ActiveRecord::Schema.define(version: 20140826215536) do
   add_index "comments", ["image_id"], name: "index_comments_on_image_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
+  create_table "image_tag_joins", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "image_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "images", force: true do |t|
     t.string   "title"
     t.string   "original_filename"
@@ -31,23 +38,17 @@ ActiveRecord::Schema.define(version: 20140826215536) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "tag_id"
-    t.integer  "num_comments",      default: 0
-    t.integer  "num_tags",          default: 0
+    t.integer  "comments_count",    default: 0
+    t.integer  "tags_count",        default: 0
   end
 
-  add_index "images", ["tag_id"], name: "index_images_on_tag_id"
   add_index "images", ["user_id"], name: "index_images_on_user_id"
-
-  create_table "images_tags", force: true do |t|
-    t.integer "image_id"
-    t.integer "tag_id"
-  end
 
   create_table "tags", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "images_count", default: 0
   end
 
   create_table "users", force: true do |t|
@@ -55,7 +56,8 @@ ActiveRecord::Schema.define(version: 20140826215536) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "num_images", default: 0
+    t.integer  "images_count",   default: 0
+    t.integer  "comments_count", default: 0
   end
 
 end

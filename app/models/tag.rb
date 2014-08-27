@@ -1,5 +1,6 @@
 class Tag < ActiveRecord::Base
 
-  has_and_belongs_to_many :images, counter_cache: true
+  has_many :image_tag_join
+  has_many :images, through: :image_tag_join, counter_cache: true
   
 end
