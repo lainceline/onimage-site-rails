@@ -26,28 +26,24 @@ describe ImagesController do
   end
 
   describe "#show" do
-    subject(:image) { FactoryGirl.create(:image) }
+    before do
+      @image = FactoryGirl.create(:image)
+      get :show, { :id => @image.id }
+    end
 
     it "makes a successful http request" do
-      get :show, { :id => image.id }
       expect(response).to be_success
     end
 
-    context "returns an image" do
+    describe "it returns an image" do
+      subject(:image_response) { parse_json[:image] }
       specify "with the passed in id" do
-        get :show, { :id => image.id }
-
-        image_response = parse_json[:image]
-        expect(image_response[:id]).to eq image.id
+        expect(image_response[:id]).to eq @image.id
       end
       specify "with an uploaded filename" do
-        get :show, { :id => image.id }
-        image_response = parse_json[:image]
         expect(image_response[:uploaded_filename]).not_to be_nil
       end
       specify "with an original filename" do
-        get :show, { :id => image.id }
-        image_response = parse_json[:image]
         expect(image_response[:original_filename]).not_to be_nil
       end
     end
