@@ -12,7 +12,7 @@ describe ImagesController do
       get :index
 
       expect(response).to be_success
-      images = JSON.parse(response.body, symbolize_names: true)[:images]
+      images = parse_json[:images]
       expect(images.first).to have_key(:id)
       expect(images.size).to eq 3
     end
@@ -25,8 +25,8 @@ describe ImagesController do
       get :show, { :id => image.id }
 
       expect(response).to be_success
-      image_response = JSON.parse(response.body, symbolize_names: true)
-      expect(image_response[:image][:id]).to eq image.id
+      image_response = parse_json[:image]
+      expect(image_response[:id]).to eq image.id
     end
   end
 end

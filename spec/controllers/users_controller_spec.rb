@@ -8,8 +8,8 @@ RSpec.describe UsersController, :type => :controller do
       end
       get :index
       expect(response).to be_success
-      users = JSON.parse(response.body, symbolize_names: true)
-      expect(users[:users].count).to eq 3
+      users = parse_json[:users]
+      expect(users.count).to eq 3
     end
   end
 
@@ -25,7 +25,7 @@ RSpec.describe UsersController, :type => :controller do
     it 'should create the user from the attributes passed in' do
       get :create, {:name => 'James', :email => 'foo@bar.com'}
       expect(response).to be_success
-      user_response = JSON.parse(response.body, symbolize_names: true)
+      user_response = parse_json
       expect(user_response[:id]).to_not be_nil
     end
   end

@@ -50,4 +50,5 @@ RSpec.configure do |config|
   #config.render_views
   config.include FactoryGirl::Syntax::Methods
   config.include Capybara::DSL
+  config.include Helpers
 end
