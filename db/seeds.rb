@@ -13,7 +13,7 @@
   comment = FactoryGirl.build(:comment)
 
   comment.user = user
-  
+
   image.tags << tag
   image.comments << comment
   user.images << image

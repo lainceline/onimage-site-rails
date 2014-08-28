@@ -17,13 +17,10 @@ gem 'jquery-rails-cdn'
 gem 'sprockets'
 
 gem 'turbolinks'
-gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'font-awesome-rails'
-
-gem 'spring',        group: :development
 
 gem 'bcrypt', '~> 3.1.7'
 
@@ -31,10 +28,13 @@ gem 'dropzonejs-rails'
 
 gem 'zip'
 
+gem 'active_model_serializers'
+
 group :development do
   gem 'doorkeeper'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'spring'
 end
 
 group :development, :test do
