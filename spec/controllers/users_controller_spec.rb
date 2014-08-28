@@ -9,7 +9,7 @@ RSpec.describe UsersController, :type => :controller do
       get :index
       expect(response).to be_success
       users = JSON.parse(response.body, symbolize_names: true)
-      expect(users.count).to eq 3
+      expect(users[:users].count).to eq 3
     end
   end
 
