@@ -2,6 +2,8 @@ require 'securerandom'
 
 class Image < ActiveRecord::Base
 
+  after_validation :randomize_filename
+
   belongs_to :user, counter_cache: true
   has_many :comments
   has_many :image_tag_join
@@ -10,12 +12,11 @@ class Image < ActiveRecord::Base
 
   validates :title, presence: true
   validates :original_filename, presence: true
-  validates :uploaded_filename, presence: true
 
   def randomize_filename
-    self.uploaded_filename = [SecureRandom.hex, self.original_filename.extension].join
+    if self.original_filename
+      self.uploaded_filename = [SecureRandom.hex, self.original_filename.extension].join
+    end
   end
 
 end
-
-
