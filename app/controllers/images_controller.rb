@@ -19,6 +19,15 @@ class ImagesController < ApplicationController
     end
   end
 
+  def update
+    image = Image.find(params[:id])
+    if image.update(image_params)
+      render json: image, status: :ok
+    else
+      render json: image.errors, status: 422
+    end
+  end
+
   def destroy
     Image.destroy(params[:id])
     head 204
