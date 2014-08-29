@@ -21,7 +21,7 @@ class ImagesController < ApplicationController
 
   def destroy
     Image.destroy(params[:id])
-    render json: 'deleted', status: 200
+    head 204
   end
 
   private

@@ -82,9 +82,9 @@ describe ImagesController do
 
   describe "#destroy" do
     subject(:image) { FactoryGirl.create(:image) }
-    it "makes a successful http request" do
+    it "returns the proper status code on success" do
       delete :destroy, { :id => image.id }
-      expect(response.status).to eq 200
+      expect(response.status).to eq 204
     end
 
     it "deletes the specified image" do
