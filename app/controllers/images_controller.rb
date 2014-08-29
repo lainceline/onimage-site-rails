@@ -9,4 +9,33 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     render json: @image
   end
+
+  def create
+    image = Image.new(image_params)
+    if image.save
+      render json: image, status: :created
+    else
+      render json: image.errors, status: 422
+    end
+  end
+
+  def update
+    image = Image.find(params[:id])
+    if image.update(image_params)
+      render json: image, status: :ok
+    else
+      render json: image.errors, status: 422
+    end
+  end
+
+  def destroy
+    Image.destroy(params[:id])
+    head 204
+  end
+
+  private
+  def image_params
+    params.permit(:original_filename, :title)
+  end
+
 end
