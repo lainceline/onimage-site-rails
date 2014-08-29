@@ -15,7 +15,8 @@ describe Image do
       expect(image).not_to be_valid
     end
 
-    xit "without an uploaded filename" do
+    it "without an uploaded filename" do
+      allow_any_instance_of(Image).to receive(:randomize_filename).and_return(nil)
       image.uploaded_filename = nil
       expect(image).not_to be_valid
     end
