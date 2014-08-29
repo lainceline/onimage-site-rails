@@ -20,6 +20,11 @@ class ImagesController < ApplicationController
     end
   end
 
+  def destroy
+    Image.destroy(params[:id])
+    render json: 'deleted', status: 200
+  end
+
   private
   def image_params
     params.permit(:original_filename, :title)

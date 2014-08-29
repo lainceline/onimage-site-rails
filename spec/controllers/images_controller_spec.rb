@@ -60,4 +60,17 @@ describe ImagesController do
       expect(response.status).to eq 400
     end
   end
+
+  describe "#destroy" do
+    subject(:image) { FactoryGirl.create(:image) }
+    it "makes a successful http request" do
+      delete :destroy, { :id => image.id }
+      expect(response.status).to eq 200
+    end
+
+    it "deletes the specified image" do
+      delete :destroy, { :id => image.id }
+      expect { Image.find(image.id) }.to raise_error ActiveRecord::RecordNotFound
+    end
+  end
 end
