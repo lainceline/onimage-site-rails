@@ -50,14 +50,33 @@ describe ImagesController do
   end
 
   describe "#create" do
-    it "makes a successful http request" do
-      post :create, { :original_filename => 'foo.jpg', :title => 'foo' }
-      expect(response.status).to eq 201
-    end
+    describe "returns json" do
+      context "on success" do
+        before { post :create, { :original_filename => 'foo.jpg', :title => 'foo' } }
+        specify "that really is json type" do
+          expect(response.content_type).to eq Mime::JSON
+        end
+        specify "with the created object" do
+          image = parse_json(response.body)[:image]
+          expect(image[:original_filename]).to eq 'foo.jpg'
+        end
+        specify "and with the correct success code" do
+          expect(response.status).to eq 201
+        end
+      end
 
-    it "returns a failure code if the image was not created" do
-      post :create
-      expect(response.status).to eq 400
+      context "on failure" do
+        before { post :create }
+        specify "that really is json type" do
+          expect(response.content_type).to eq Mime::JSON
+        end
+        specify "with the errors" do
+          expect(parse_json(response.body)).to have_key(:title)
+        end
+        specify "and with an error status code" do
+          expect(response.status).to eq 422
+        end
+      end
     end
   end
 

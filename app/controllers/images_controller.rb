@@ -11,12 +11,11 @@ class ImagesController < ApplicationController
   end
 
   def create
-    @image = Image.new(image_params)
-    if @image.valid?
-      @image.save
-      render json: 'success', status: :created
+    image = Image.new(image_params)
+    if image.save
+      render json: image, status: :created
     else
-      render json: 'failure', status: 400
+      render json: image.errors, status: 422
     end
   end
 
