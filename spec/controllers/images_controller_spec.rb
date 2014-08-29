@@ -36,12 +36,19 @@ describe ImagesController do
 
     describe "it returns an image" do
       subject(:image_response) { parse_json[:image] }
+
+      specify "as json" do
+        expect(response.content_type).to eq Mime::JSON
+      end
+
       specify "with the passed in id" do
         expect(image_response[:id]).to eq image.id
       end
+
       specify "with an uploaded filename" do
         expect(image_response[:uploaded_filename]).not_to be_nil
       end
+
       specify "with an original filename" do
         expect(image_response[:original_filename]).not_to be_nil
       end
@@ -53,13 +60,16 @@ describe ImagesController do
     describe "returns json" do
       context "on success" do
         before { post :create, { :original_filename => 'foo.jpg', :title => 'foo' } }
+
         specify "that really is json type" do
           expect(response.content_type).to eq Mime::JSON
         end
+
         specify "with the created object" do
           image = parse_json(response.body)[:image]
           expect(image[:original_filename]).to eq 'foo.jpg'
         end
+
         specify "and with the correct success code" do
           expect(response.status).to eq 201
         end
@@ -67,12 +77,15 @@ describe ImagesController do
 
       context "on failure" do
         before { post :create }
+
         specify "that really is json type" do
           expect(response.content_type).to eq Mime::JSON
         end
+
         specify "with the errors" do
           expect(parse_json(response.body)).to have_key(:title)
         end
+
         specify "and with an error status code" do
           expect(response.status).to eq 422
         end
@@ -83,36 +96,46 @@ describe ImagesController do
   describe "#update" do
     describe "returns json" do
       subject(:image) { FactoryGirl.create(:image) }
+
       context "on success" do
         before { patch :update, { :id => image.id, :title => 'bar' } }
+
         specify "that really is json type" do
           expect(response.content_type).to eq Mime::JSON
         end
+
         specify "with the updated object" do
           changed_image = parse_json(response.body)[:image]
           expect(changed_image[:title]).to eq 'bar'
         end
+
         specify 'and with the correct success code' do
           expect(response.status).to eq 200
         end
       end
+
       context "on error" do
         before { patch :update, { :id => image.id, :original_filename => nil } }
+
         specify "that really is json type" do
           expect(response.content_type).to eq Mime::JSON
         end
+
         specify "with the errors" do
           expect(parse_json(response.body)).to have_key(:original_filename)
         end
+
         specify "and with the correct error code" do
           expect(response.status).to eq 422
         end
+
       end
     end
   end
 
   describe "#destroy" do
     subject(:image) { FactoryGirl.create(:image) }
+
     it "returns the proper status code on success" do
       delete :destroy, { :id => image.id }
       expect(response.status).to eq 204
